@@ -1,0 +1,14 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.app {
+  height: 100%;
+}
+.MuiInput-underline::before {
+  border-bottom-color: #23f0c7 !important;
+}
