@@ -47,10 +47,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: theme.spacing(1),
     width: "40%",
     "& .MuiFormLabel-root": {
-      color: "#222",
+      color: "#eee",
     },
     "& .MuiOutlinedInput-root": {
-      color: "#222",
+      color: "#eee",
       backgroundColor: fade("#66d0f9", 0.1),
       borderRadius: theme.shape.borderRadius,
 
