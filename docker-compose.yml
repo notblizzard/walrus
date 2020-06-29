@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:11.8
+    ports:
+      - "5432:5432"
+    networks:
+      - web
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PASSWORD: ${DB_PASS}
+  web:
+    build: .
+    ports:
+      - "7070:7070"
+    env_file:
+      - ".env"
+    depends_on:
+      - "db"
+    networks:
+      - web
+    restart: on-failure
+    environment:
+      DB_HOST: db
+networks:
+  web:

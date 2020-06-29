@@ -102,7 +102,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 const ViewPost = (): JSX.Element => {
-  const csrf = Cookies.get("X-CSRF-TOKEN");
+  const csrf = Cookies.get("X-CSRF-TOKEN")!;
   const classes = useStyles();
   const [comment, setComment] = useState("");
   const [post, setPost] = useState<Post>(null!);
