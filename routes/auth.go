@@ -91,7 +91,6 @@ func RegisterUser(c *gin.Context) {
 		return
 	}
 	var user models.User
-	gravatar := StringToMD5(user.Email)
 	models.DB.Where(&models.User{Username: json.Username}).Or(&models.User{Email: json.Email}).First(&user)
 
 	if user.Username == "" {
@@ -99,6 +98,7 @@ func RegisterUser(c *gin.Context) {
 		if err != nil {
 			panic(err)
 		}
+		gravatar := StringToMD5(json.Email)
 		user = models.User{Username: json.Username, Email: json.Email, Password: string(hashed), AvatarPath: gravatar}
 		models.DB.Create(&user)
 		c.JSON(http.StatusOK, map[string]interface{}{"success": true})
