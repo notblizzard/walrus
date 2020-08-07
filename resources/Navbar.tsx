@@ -47,7 +47,12 @@ const Navbar = (): JSX.Element => {
     <AppBar className={classes.navBar} position="fixed">
       <Toolbar className={classes.toolBar}>
         {Cookies.get("avatar") ? (
-          <Box display="flex" flexDirection="row-reverse">
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            flexDirection="row-reverse"
+          >
             <Link to="/gallery">
               <Avatar path={Cookies.get("avatar")!} size={5} />
             </Link>
